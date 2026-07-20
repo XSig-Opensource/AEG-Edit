@@ -1,0 +1,34 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+logs/
+output/
+results/
+checkpoints/
+
+*.log
+*.tmp
+*.bak
+*.swp
+
+.env
+.venv/
+venv/
+
+target/
+cargo_test_temp/
+
+# Model weights and encoder caches
+*.pt
+*.bin
+*.ckpt
+*.safetensors
+agrace_encoder/**/*.pkl
+
+# Paper PDFs
+*.pdf

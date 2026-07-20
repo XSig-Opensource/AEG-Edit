@@ -1,0 +1,10 @@
+{
+    "model_name": "Llama-3.1-8B-Instruct",
+    "layers": [],
+    "rewrite_module_tmp": "model.layers.{}.mlp.down_proj",
+    "layer_module_tmp": "model.layers.{}",
+    "epoch_num": 8,
+    "max_focus_tokens": 30,
+    "trainable_layers_mode": "2quarter",
+    "scale": 1
+}

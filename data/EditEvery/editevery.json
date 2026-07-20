@@ -1,0 +1,296 @@
+[
+    {
+        "id": 0,
+        "question": "Write a function to get a lucid number smaller than or equal to n.",
+        "answer": "def get_ludic(n):\r\n\tludics = []\r\n\tfor i in range(1, n + 1):\r\n\t\tludics.append(i)\r\n\tindex = 1\r\n\twhile(index != len(ludics)):\r\n\t\tfirst_ludic = ludics[index]\r\n\t\tremove_index = index + first_ludic\r\n\t\twhile(remove_index < len(ludics)):\r\n\t\t\tludics.remove(ludics[remove_index])\r\n\t\t\tremove_index = remove_index + first_ludic - 1\r\n\t\tindex += 1\r\n\treturn ludics",
+        "category": "code"
+    },
+    {
+        "id": 1,
+        "question": "Write a python function to find nth bell number.",
+        "answer": "def bell_Number(n): \r\n    bell = [[0 for i in range(n+1)] for j in range(n+1)] \r\n    bell[0][0] = 1\r\n    for i in range(1, n+1):\r\n        bell[i][0] = bell[i-1][i-1]\r\n        for j in range(1, i+1): \r\n            bell[i][j] = bell[i-1][j-1] + bell[i][j-1] \r\n    return bell[n][0] ",
+        "category": "code"
+    },
+    {
+        "id": 2,
+        "question": "Write a function to find the largest subset where each pair is divisible.",
+        "answer": "def largest_subset(a, n):\r\n\tdp = [0 for i in range(n)]\r\n\tdp[n - 1] = 1; \r\n\tfor i in range(n - 2, -1, -1):\r\n\t\tmxm = 0;\r\n\t\tfor j in range(i + 1, n):\r\n\t\t\tif a[j] % a[i] == 0 or a[i] % a[j] == 0:\r\n\t\t\t\tmxm = max(mxm, dp[j])\r\n\t\tdp[i] = 1 + mxm\r\n\treturn max(dp)",
+        "category": "code"
+    },
+    {
+        "id": 3,
+        "question": "Write a function to find the median of two sorted arrays of same size.",
+        "answer": "def get_median(arr1, arr2, n):\r\n  i = 0\r\n  j = 0\r\n  m1 = -1\r\n  m2 = -1\r\n  count = 0\r\n  while count < n + 1:\r\n    count += 1\r\n    if i == n:\r\n      m1 = m2\r\n      m2 = arr2[0]\r\n      break\r\n    elif j == n:\r\n      m1 = m2\r\n      m2 = arr1[0]\r\n      break\r\n    if arr1[i] <= arr2[j]:\r\n      m1 = m2\r\n      m2 = arr1[i]\r\n      i += 1\r\n    else:\r\n      m1 = m2\r\n      m2 = arr2[j]\r\n      j += 1\r\n  return (m1 + m2)/2",
+        "category": "code"
+    },
+    {
+        "id": 4,
+        "question": "Write a python function to check whether the given two arrays are equal or not.",
+        "answer": "def are_Equal(arr1,arr2,n,m):\r\n    if (n != m):\r\n        return False\r\n    arr1.sort()\r\n    arr2.sort()\r\n    for i in range(0,n - 1):\r\n        if (arr1[i] != arr2[i]):\r\n            return False\r\n    return True",
+        "category": "code"
+    },
+    {
+        "id": 5,
+        "question": "Write a python function to find the first digit in factorial of a given number.",
+        "answer": "import math \r\ndef first_Digit(n) : \r\n    fact = 1\r\n    for i in range(2,n + 1) : \r\n        fact = fact * i \r\n        while (fact % 10 == 0) :  \r\n            fact = int(fact / 10) \r\n    while (fact >= 10) : \r\n        fact = int(fact / 10) \r\n    return math.floor(fact) ",
+        "category": "code"
+    },
+    {
+        "id": 6,
+        "question": "Write a function to find the item with maximum occurrences in a given list.",
+        "answer": "def max_occurrences(list1):\r\n    max_val = 0\r\n    result = list1[0] \r\n    for i in list1:\r\n        occu = list1.count(i)\r\n        if occu > max_val:\r\n            max_val = occu\r\n            result = i \r\n    return result",
+        "category": "code"
+    },
+    {
+        "id": 7,
+        "question": "Write a python function to print duplicants from a list of integers.",
+        "answer": "def Repeat(x): \r\n    _size = len(x) \r\n    repeated = [] \r\n    for i in range(_size): \r\n        k = i + 1\r\n        for j in range(k, _size): \r\n            if x[i] == x[j] and x[i] not in repeated: \r\n                repeated.append(x[i]) \r\n    return repeated ",
+        "category": "code"
+    },
+    {
+        "id": 8,
+        "question": "Write a python function to set the right most unset bit.",
+        "answer": "import math \r\ndef get_Pos_Of_Right_most_Set_Bit(n): \r\n    return int(math.log2(n&-n)+1)   \r\ndef set_Right_most_Unset_Bit(n): \r\n    if (n == 0): \r\n        return 1\r\n    if ((n & (n + 1)) == 0):     \r\n        return n \r\n    pos = get_Pos_Of_Right_most_Set_Bit(~n)      \r\n    return ((1 << (pos - 1)) | n) ",
+        "category": "code"
+    },
+    {
+        "id": 9,
+        "question": "Write a function to find maximum of three numbers.",
+        "answer": "def max_of_three(num1,num2,num3): \r\n    if (num1 >= num2) and (num1 >= num3):\r\n       lnum = num1\r\n    elif (num2 >= num1) and (num2 >= num3):\r\n       lnum = num2\r\n    else:\r\n       lnum = num3\r\n    return lnum",
+        "category": "code"
+    },
+    {
+        "id": 10,
+        "question": "Write a python function to find sum of prime numbers between 1 to n.",
+        "answer": "def sum_Of_Primes(n): \r\n    prime = [True] * (n + 1)  \r\n    p = 2\r\n    while p * p <= n: \r\n        if prime[p] == True:  \r\n            i = p * 2\r\n            while i <= n: \r\n                prime[i] = False\r\n                i += p \r\n        p += 1    \r\n    sum = 0\r\n    for i in range (2,n + 1): \r\n        if(prime[i]): \r\n            sum += i \r\n    return sum",
+        "category": "code"
+    },
+    {
+        "id": 11,
+        "question": "Write a function to find the equilibrium index of the given array.",
+        "answer": "def equilibrium_index(arr):\r\n  total_sum = sum(arr)\r\n  left_sum=0\r\n  for i, num in enumerate(arr):\r\n    total_sum -= num\r\n    if left_sum == total_sum:\r\n      return i\r\n    left_sum += num\r\n  return -1",
+        "category": "code"
+    },
+    {
+        "id": 12,
+        "question": "Write a function to find whether an array is subset of another array.",
+        "answer": "def is_subset(arr1, m, arr2, n): \r\n\thashset = set() \r\n\tfor i in range(0, m): \r\n\t\thashset.add(arr1[i]) \r\n\tfor i in range(0, n): \r\n\t\tif arr2[i] in hashset: \r\n\t\t\tcontinue\r\n\t\telse: \r\n\t\t\treturn False\r\n\treturn True\t\t",
+        "category": "code"
+    },
+    {
+        "id": 13,
+        "question": "Write a python function to count the total set bits from 1 to n.",
+        "answer": "def count_Set_Bits(n) :  \r\n    n += 1; \r\n    powerOf2 = 2;   \r\n    cnt = n // 2;  \r\n    while (powerOf2 <= n) : \r\n        totalPairs = n // powerOf2;  \r\n        cnt += (totalPairs // 2) * powerOf2;  \r\n        if (totalPairs & 1) : \r\n            cnt += (n % powerOf2) \r\n        else : \r\n            cnt += 0\r\n        powerOf2 <<= 1;    \r\n    return cnt;  ",
+        "category": "code"
+    },
+    {
+        "id": 14,
+        "question": "Write a function to count unique keys for each value present in the tuple.",
+        "answer": "from collections import defaultdict \r\ndef get_unique(test_list):\r\n  res = defaultdict(list)\r\n  for sub in test_list:\r\n    res[sub[1]].append(sub[0])\r\n  res = dict(res)\r\n  res_dict = dict()\r\n  for key in res:\r\n    res_dict[key] = len(list(set(res[key])))\r\n  return (str(res_dict)) ",
+        "category": "code"
+    },
+    {
+        "id": 15,
+        "question": "Write a function to calculate the standard deviation.",
+        "answer": "import math\r\nimport sys\r\ndef sd_calc(data):\r\n    n = len(data)\r\n    if n <= 1:\r\n        return 0.0\r\n    mean, sd = avg_calc(data), 0.0\r\n    for el in data:\r\n        sd += (float(el) - mean)**2\r\n    sd = math.sqrt(sd / float(n-1))\r\n    return sd\r\ndef avg_calc(ls):\r\n    n, mean = len(ls), 0.0\r\n    if n <= 1:\r\n        return ls[0]\r\n    for el in ls:\r\n        mean = mean + float(el)\r\n    mean = mean / float(n)\r\n    return mean",
+        "category": "code"
+    },
+    {
+        "id": 16,
+        "question": "Write a python function to find sum of products of all possible subarrays.",
+        "answer": "def sum_Of_Subarray_Prod(arr,n):\r\n    ans = 0\r\n    res = 0\r\n    i = n - 1\r\n    while (i >= 0):\r\n        incr = arr[i]*(1 + res)\r\n        ans += incr\r\n        res = incr\r\n        i -= 1\r\n    return (ans)",
+        "category": "code"
+    },
+    {
+        "id": 17,
+        "question": "Write a function to check if the given array represents min heap or not.",
+        "answer": "def check_min_heap(arr, i):\r\n    if 2 * i + 2 > len(arr):\r\n        return True\r\n    left_child = (arr[i] <= arr[2 * i + 1]) and check_min_heap(arr, 2 * i + 1)\r\n    right_child = (2 * i + 2 == len(arr)) or (arr[i] <= arr[2 * i + 2] \r\n                                      and check_min_heap(arr, 2 * i + 2))\r\n    return left_child and right_child",
+        "category": "code"
+    },
+    {
+        "id": 18,
+        "question": "Write a function to find the second smallest number in a list.",
+        "answer": "def second_smallest(numbers):\r\n  if (len(numbers)<2):\r\n    return\r\n  if ((len(numbers)==2)  and (numbers[0] == numbers[1]) ):\r\n    return\r\n  dup_items = set()\r\n  uniq_items = []\r\n  for x in numbers:\r\n    if x not in dup_items:\r\n      uniq_items.append(x)\r\n      dup_items.add(x)\r\n  uniq_items.sort()    \r\n  return  uniq_items[1] ",
+        "category": "code"
+    },
+    {
+        "id": 19,
+        "question": "Write a function to count number of unique lists within a list.",
+        "answer": "def unique_sublists(list1):\r\n    result ={}\r\n    for l in  list1: \r\n        result.setdefault(tuple(l), list()).append(1) \r\n    for a, b in result.items(): \r\n        result[a] = sum(b)\r\n    return result",
+        "category": "code"
+    },
+    {
+        "id": 20,
+        "question": "Write a function to check if the given expression is balanced or not.",
+        "answer": "from collections import deque\r\ndef check_expression(exp):\r\n    if len(exp) & 1:\r\n        return False\r\n    stack = deque()\r\n    for ch in exp:\r\n        if ch == '(' or ch == '{' or ch == '[':\r\n            stack.append(ch)\r\n        if ch == ')' or ch == '}' or ch == ']':\r\n            if not stack:\r\n                return False\r\n            top = stack.pop()\r\n            if (top == '(' and ch != ')') or (top == '{' and ch != '}' or (top == '[' and ch != ']')):\r\n                return False\r\n    return not stack",
+        "category": "code"
+    },
+    {
+        "id": 21,
+        "question": "Write a function to count the number of unique lists within a list.",
+        "answer": "def unique_sublists(list1):\r\n    result ={}\r\n    for l in list1: \r\n        result.setdefault(tuple(l), list()).append(1) \r\n    for a, b in result.items(): \r\n        result[a] = sum(b)\r\n    return result",
+        "category": "code"
+    },
+    {
+        "id": 22,
+        "question": "Write a python function to check whether the count of divisors is even or odd.",
+        "answer": "import math \r\ndef count_Divisors(n) : \r\n    count = 0\r\n    for i in range(1, (int)(math.sqrt(n)) + 2) : \r\n        if (n % i == 0) : \r\n            if( n // i == i) : \r\n                count = count + 1\r\n            else : \r\n                count = count + 2\r\n    if (count % 2 == 0) : \r\n        return (\"Even\") \r\n    else : \r\n        return (\"Odd\") ",
+        "category": "code"
+    },
+    {
+        "id": 23,
+        "question": "Write a function to convert rgb color to hsv color.",
+        "answer": "def rgb_to_hsv(r, g, b):\r\n    r, g, b = r/255.0, g/255.0, b/255.0\r\n    mx = max(r, g, b)\r\n    mn = min(r, g, b)\r\n    df = mx-mn\r\n    if mx == mn:\r\n        h = 0\r\n    elif mx == r:\r\n        h = (60 * ((g-b)/df) + 360) % 360\r\n    elif mx == g:\r\n        h = (60 * ((b-r)/df) + 120) % 360\r\n    elif mx == b:\r\n        h = (60 * ((r-g)/df) + 240) % 360\r\n    if mx == 0:\r\n        s = 0\r\n    else:\r\n        s = (df/mx)*100\r\n    v = mx*100\r\n    return h, s, v",
+        "category": "code"
+    },
+    {
+        "id": 24,
+        "question": "Write a function that matches a string that has an a followed by three 'b'.",
+        "answer": "import re\r\ndef text_match_three(text):\r\n        patterns = 'ab{3}?'\r\n        if re.search(patterns,  text):\r\n                return 'Found a match!'\r\n        else:\r\n                return('Not matched!')",
+        "category": "code"
+    },
+    {
+        "id": 25,
+        "question": "Write a function to return true if the password is valid.",
+        "answer": "import re\r\ndef pass_validity(p):\r\n x = True\r\n while x:  \r\n    if (len(p)<6 or len(p)>12):\r\n        break\r\n    elif not re.search(\"[a-z]\",p):\r\n        break\r\n    elif not re.search(\"[0-9]\",p):\r\n        break\r\n    elif not re.search(\"[A-Z]\",p):\r\n        break\r\n    elif not re.search(\"[$#@]\",p):\r\n        break\r\n    elif re.search(\"\\s\",p):\r\n        break\r\n    else:\r\n        return True\r\n        x=False\r\n        break\r\n\r\n if x:\r\n    return False",
+        "category": "code"
+    },
+    {
+        "id": 26,
+        "question": "Write a python function to find the type of triangle from the given sides.",
+        "answer": "def check_Type_Of_Triangle(a,b,c): \r\n    sqa = pow(a,2) \r\n    sqb = pow(b,2) \r\n    sqc = pow(c,2) \r\n    if (sqa == sqa + sqb or sqb == sqa + sqc or sqc == sqa + sqb): \r\n        return (\"Right-angled Triangle\") \r\n    elif (sqa > sqc + sqb or sqb > sqa + sqc or sqc > sqa + sqb): \r\n        return (\"Obtuse-angled Triangle\") \r\n    else: \r\n        return (\"Acute-angled Triangle\") ",
+        "category": "code"
+    },
+    {
+        "id": 27,
+        "question": "Write a function to find length of the subarray having maximum sum.",
+        "answer": "from sys import maxsize \r\ndef max_sub_array_sum(a,size): \r\n\tmax_so_far = -maxsize - 1\r\n\tmax_ending_here = 0\r\n\tstart = 0\r\n\tend = 0\r\n\ts = 0\r\n\tfor i in range(0,size): \r\n\t\tmax_ending_here += a[i] \r\n\t\tif max_so_far < max_ending_here: \r\n\t\t\tmax_so_far = max_ending_here \r\n\t\t\tstart = s \r\n\t\t\tend = i \r\n\t\tif max_ending_here < 0: \r\n\t\t\tmax_ending_here = 0\r\n\t\t\ts = i+1\r\n\treturn (end - start + 1)",
+        "category": "code"
+    },
+    {
+        "id": 28,
+        "question": "Write a python function to find sum of all prime divisors of a given number.",
+        "answer": "def Sum(N): \r\n    SumOfPrimeDivisors = [0]*(N + 1)   \r\n    for i in range(2,N + 1) : \r\n        if (SumOfPrimeDivisors[i] == 0) : \r\n            for j in range(i,N + 1,i) : \r\n                SumOfPrimeDivisors[j] += i           \r\n    return SumOfPrimeDivisors[N] ",
+        "category": "code"
+    },
+    {
+        "id": 29,
+        "question": "Write a python function to find sum of odd factors of a number.",
+        "answer": "import math\r\ndef sum_of_odd_Factors(n): \r\n    res = 1\r\n    while n % 2 == 0: \r\n        n = n // 2 \r\n    for i in range(3,int(math.sqrt(n) + 1)): \r\n        count = 0\r\n        curr_sum = 1\r\n        curr_term = 1\r\n        while n % i == 0: \r\n            count+=1 \r\n            n = n // i \r\n            curr_term *= i \r\n            curr_sum += curr_term    \r\n        res *= curr_sum  \r\n    if n >= 2: \r\n        res *= (1 + n) \r\n    return res ",
+        "category": "code"
+    },
+    {
+        "id": 30,
+        "question": "Write a function to generate all sublists of a given list.",
+        "answer": "from itertools import combinations\r\ndef sub_lists(my_list):\r\n\tsubs = []\r\n\tfor i in range(0, len(my_list)+1):\r\n\t  temp = [list(x) for x in combinations(my_list, i)]\r\n\t  if len(temp)>0:\r\n\t    subs.extend(temp)\r\n\treturn subs",
+        "category": "code"
+    },
+    {
+        "id": 31,
+        "question": "Write a function to check whether the given month name contains 31 days or not.",
+        "answer": "def check_monthnumb(monthname2):\r\n  if(monthname2==\"January\" or monthname2==\"March\"or monthname2==\"May\" or monthname2==\"July\" or monthname2==\"Augest\" or monthname2==\"October\" or monthname2==\"December\"):\r\n    return True\r\n  else:\r\n    return False",
+        "category": "code"
+    },
+    {
+        "id": 32,
+        "question": "Write a python function to find number of solutions in quadratic equation.",
+        "answer": "def Check_Solution(a,b,c) : \r\n    if ((b*b) - (4*a*c)) > 0 : \r\n        return (\"2 solutions\") \r\n    elif ((b*b) - (4*a*c)) == 0 : \r\n        return (\"1 solution\") \r\n    else : \r\n        return (\"No solutions\") ",
+        "category": "code"
+    },
+    {
+        "id": 33,
+        "question": "Write a function to find the smallest multiple of the first n numbers.",
+        "answer": "def smallest_multiple(n):\r\n    if (n<=2):\r\n      return n\r\n    i = n * 2\r\n    factors = [number  for number in range(n, 1, -1) if number * 2 > n]\r\n    while True:\r\n        for a in factors:\r\n            if i % a != 0:\r\n                i += n\r\n                break\r\n            if (a == factors[-1] and i % a == 0):\r\n                return i",
+        "category": "code"
+    },
+    {
+        "id": 34,
+        "question": "Write a python function to count the total unset bits from 1 to n.",
+        "answer": "def count_Unset_Bits(n) :  \r\n    cnt = 0;  \r\n    for i in range(1,n + 1) : \r\n        temp = i;  \r\n        while (temp) :  \r\n            if (temp % 2 == 0) : \r\n                cnt += 1;  \r\n            temp = temp // 2;  \r\n    return cnt;  ",
+        "category": "code"
+    },
+    {
+        "id": 35,
+        "question": "Write a python function to find the sum of squares of binomial co-efficients.",
+        "answer": "def factorial(start,end): \r\n    res = 1 \r\n    for i in range(start,end + 1): \r\n        res *= i      \r\n    return res \r\ndef sum_of_square(n): \r\n   return int(factorial(n + 1, 2 * n)  /factorial(1, n)) ",
+        "category": "code"
+    },
+    {
+        "id": 36,
+        "question": "Write a function to find ln, m lobb number.",
+        "answer": "def binomial_coeff(n, k): \r\n\tC = [[0 for j in range(k + 1)] \r\n\t\t\tfor i in range(n + 1)] \r\n\tfor i in range(0, n + 1): \r\n\t\tfor j in range(0, min(i, k) + 1): \r\n\t\t\tif (j == 0 or j == i): \r\n\t\t\t\tC[i][j] = 1\r\n\t\t\telse: \r\n\t\t\t\tC[i][j] = (C[i - 1][j - 1] \r\n\t\t\t\t\t\t\t+ C[i - 1][j]) \r\n\treturn C[n][k] \r\ndef lobb_num(n, m): \r\n\treturn (((2 * m + 1) *\r\n\t\tbinomial_coeff(2 * n, m + n)) \r\n\t\t\t\t\t/ (m + n + 1))",
+        "category": "code"
+    },
+    {
+        "id": 37,
+        "question": "Write a function to count coin change.",
+        "answer": "def coin_change(S, m, n): \r\n    table = [[0 for x in range(m)] for x in range(n+1)] \r\n    for i in range(m): \r\n        table[0][i] = 1\r\n    for i in range(1, n+1): \r\n        for j in range(m): \r\n            x = table[i - S[j]][j] if i-S[j] >= 0 else 0\r\n            y = table[i][j-1] if j >= 1 else 0 \r\n            table[i][j] = x + y   \r\n    return table[n][m-1] ",
+        "category": "code"
+    },
+    {
+        "id": 38,
+        "question": "Write a function to find n-th rencontres number.",
+        "answer": "def binomial_coeffi(n, k): \r\n\tif (k == 0 or k == n): \r\n\t\treturn 1\r\n\treturn (binomial_coeffi(n - 1, k - 1) \r\n\t\t+ binomial_coeffi(n - 1, k)) \r\ndef rencontres_number(n, m): \r\n\tif (n == 0 and m == 0): \r\n\t\treturn 1\r\n\tif (n == 1 and m == 0): \r\n\t\treturn 0\r\n\tif (m == 0): \r\n\t\treturn ((n - 1) * (rencontres_number(n - 1, 0)+ rencontres_number(n - 2, 0))) \r\n\treturn (binomial_coeffi(n, m) * rencontres_number(n - m, 0))",
+        "category": "code"
+    },
+    {
+        "id": 39,
+        "question": "Write a function to calculate the height of the given binary tree.",
+        "answer": "class Node: \r\n\tdef __init__(self, data): \r\n\t\tself.data = data \r\n\t\tself.left = None\r\n\t\tself.right = None\r\ndef max_height(node): \r\n\tif node is None: \r\n\t\treturn 0 ; \r\n\telse : \r\n\t\tleft_height = max_height(node.left) \r\n\t\tright_height = max_height(node.right) \r\n\t\tif (left_height > right_height): \r\n\t\t\treturn left_height+1\r\n\t\telse: \r\n\t\t\treturn right_height+1",
+        "category": "code"
+    },
+    {
+        "id": 40,
+        "question": "Write a function to find three closest elements from three sorted arrays.",
+        "answer": "import sys \r\n\r\ndef find_closet(A, B, C, p, q, r): \r\n\tdiff = sys.maxsize \r\n\tres_i = 0\r\n\tres_j = 0\r\n\tres_k = 0\r\n\ti = 0\r\n\tj = 0\r\n\tk = 0\r\n\twhile(i < p and j < q and k < r): \r\n\t\tminimum = min(A[i], min(B[j], C[k])) \r\n\t\tmaximum = max(A[i], max(B[j], C[k])); \r\n\t\tif maximum-minimum < diff: \r\n\t\t\tres_i = i \r\n\t\t\tres_j = j \r\n\t\t\tres_k = k \r\n\t\t\tdiff = maximum - minimum; \r\n\t\tif diff == 0: \r\n\t\t\tbreak\r\n\t\tif A[i] == minimum: \r\n\t\t\ti = i+1\r\n\t\telif B[j] == minimum: \r\n\t\t\tj = j+1\r\n\t\telse: \r\n\t\t\tk = k+1\r\n\treturn A[res_i],B[res_j],C[res_k]",
+        "category": "code"
+    },
+    {
+        "id": 41,
+        "question": "Write a function to sort the given array by using heap sort.",
+        "answer": "def heap_sort(arr):\r\n    heapify(arr)  \r\n    end = len(arr) - 1\r\n    while end > 0:\r\n        arr[end], arr[0] = arr[0], arr[end]\r\n        shift_down(arr, 0, end - 1)\r\n        end -= 1\r\n    return arr\r\n\r\ndef heapify(arr):\r\n    start = len(arr) // 2\r\n    while start >= 0:\r\n        shift_down(arr, start, len(arr) - 1)\r\n        start -= 1\r\ndef shift_down(arr, start, end):\r\n    root = start\r\n    while root * 2 + 1 <= end:\r\n        child = root * 2 + 1\r\n        if child + 1 <= end and arr[child] < arr[child + 1]:\r\n            child += 1\r\n        if child <= end and arr[root] < arr[child]:\r\n            arr[root], arr[child] = arr[child], arr[root]\r\n            root = child\r\n        else:\r\n            return\r\n",
+        "category": "code"
+    },
+    {
+        "id": 42,
+        "question": "Write a function to display sign of the chinese zodiac for given year.",
+        "answer": "def chinese_zodiac(year):\r\n if (year - 2000) % 12 == 0:\r\n     sign = 'Dragon'\r\n elif (year - 2000) % 12 == 1:\r\n     sign = 'Snake'\r\n elif (year - 2000) % 12 == 2:\r\n     sign = 'Horse'\r\n elif (year - 2000) % 12 == 3:\r\n     sign = 'sheep'\r\n elif (year - 2000) % 12 == 4:\r\n     sign = 'Monkey'\r\n elif (year - 2000) % 12 == 5:\r\n     sign = 'Rooster'\r\n elif (year - 2000) % 12 == 6:\r\n     sign = 'Dog'\r\n elif (year - 2000) % 12 == 7:\r\n     sign = 'Pig'\r\n elif (year - 2000) % 12 == 8:\r\n     sign = 'Rat'\r\n elif (year - 2000) % 12 == 9:\r\n     sign = 'Ox'\r\n elif (year - 2000) % 12 == 10:\r\n     sign = 'Tiger'\r\n else:\r\n     sign = 'Hare'\r\n return sign",
+        "category": "code"
+    },
+    {
+        "id": 43,
+        "question": "Write a function to compute the value of ncr mod p.",
+        "answer": "def nCr_mod_p(n, r, p): \r\n\tif (r > n- r): \r\n\t\tr = n - r \r\n\tC = [0 for i in range(r + 1)] \r\n\tC[0] = 1 \r\n\tfor i in range(1, n + 1): \r\n\t\tfor j in range(min(i, r), 0, -1): \r\n\t\t\tC[j] = (C[j] + C[j-1]) % p \r\n\treturn C[r] ",
+        "category": "code"
+    },
+    {
+        "id": 44,
+        "question": "Write a function to convert an integer into a roman numeral.",
+        "answer": "def int_to_roman( num):\r\n        val = [1000, 900, 500, 400,100, 90, 50, 40,10, 9, 5, 4,1]\r\n        syb = [\"M\", \"CM\", \"D\", \"CD\",\"C\", \"XC\", \"L\", \"XL\",\"X\", \"IX\", \"V\", \"IV\",\"I\"]\r\n        roman_num = ''\r\n        i = 0\r\n        while  num > 0:\r\n            for _ in range(num // val[i]):\r\n                roman_num += syb[i]\r\n                num -= val[i]\r\n            i += 1\r\n        return roman_num",
+        "category": "code"
+    },
+    {
+        "id": 45,
+        "question": "Write a function to convert a roman numeral to an integer.",
+        "answer": "def roman_to_int(s):\r\n        rom_val = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}\r\n        int_val = 0\r\n        for i in range(len(s)):\r\n            if i > 0 and rom_val[s[i]] > rom_val[s[i - 1]]:\r\n                int_val += rom_val[s[i]] - 2 * rom_val[s[i - 1]]\r\n            else:\r\n                int_val += rom_val[s[i]]\r\n        return int_val",
+        "category": "code"
+    },
+    {
+        "id": 46,
+        "question": "Write a function to calculate the discriminant value.",
+        "answer": "def discriminant_value(x,y,z):\r\n    discriminant = (y**2) - (4*x*z)\r\n    if discriminant > 0:\r\n        return (\"Two solutions\",discriminant)\r\n    elif discriminant == 0:\r\n        return (\"one solution\",discriminant)\r\n    elif discriminant < 0:\r\n        return (\"no real solution\",discriminant)",
+        "category": "code"
+    },
+    {
+        "id": 47,
+        "question": "Write a function to join the tuples if they have similar initial elements.",
+        "answer": "def join_tuples(test_list):\r\n  res = []\r\n  for sub in test_list:\r\n    if res and res[-1][0] == sub[0]:\r\n      res[-1].extend(sub[1:])\r\n    else:\r\n      res.append([ele for ele in sub])\r\n  res = list(map(tuple, res))\r\n  return (res) ",
+        "category": "code"
+    },
+    {
+        "id": 48,
+        "question": "Write a function to find the minimum total path sum in the given triangle.",
+        "answer": "def min_sum_path(A): \r\n\tmemo = [None] * len(A) \r\n\tn = len(A) - 1\r\n\tfor i in range(len(A[n])): \r\n\t\tmemo[i] = A[n][i] \r\n\tfor i in range(len(A) - 2, -1,-1): \r\n\t\tfor j in range( len(A[i])): \r\n\t\t\tmemo[j] = A[i][j] + min(memo[j], \r\n\t\t\t\t\t\t\t\t\tmemo[j + 1]) \r\n\treturn memo[0]",
+        "category": "code"
+    }
+]

@@ -1,0 +1,23 @@
+{
+    "model_name": "Llama3.1-8B-Instruct",
+    "tokenizer_name": "Llama3.1-8B-Instruct",
+    "inner_params": [
+        "model.layers.31.mlp.down_proj.weight"
+    ],
+    "edit_lr": 1.0,
+    "n_iter": 30,
+    "eps": 1.0,
+    "dist_fn": "euc",
+    "val_init": "cold",
+    "val_train": "sgd",
+    "val_reg": "None",
+    "reg": "early_stop",
+    "replacement": "replace_last",
+    "eps_expand": "coverage",
+    "num_pert": 8,
+    "dropout": 0.0,
+    "encoder_state_path": "./agrace_encoder/RustEvo/Llama-3.1-8B-Instruct_encoder.pt",
+    "device": 0,
+    "batch_size": 1,
+    "max_length": 30
+}
