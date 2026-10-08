@@ -186,7 +186,21 @@ For this reason, we exclude BLEU, ROUGE-L, and CodeBLEU from our primary evaluat
 
 ## 📚 Citation
 
-If you use AEG-Edit, please cite our ASE 2026 paper. The official BibTeX entry will be added once the proceedings metadata is available.
+If you use AEG-Edit, please cite our [ASE 2026 paper](https://doi.org/10.1145/3832783.3834415) using the following BibTeX entry:
+
+```bibtex
+@inproceedings{lin2026aegedit,
+  author    = {Lin, Yitong and Tian, Haoye and Zhao, Dehai and Ni, Chao and Yang, Xiaohu and Ren, Xiaoxue},
+  title     = {{AEG-Edit}: Bridging {API} Evolution and Code Semantics for Accurate {API} Usage in Code Generation},
+  booktitle = {Proceedings of the 41st IEEE/ACM International Conference on Automated Software Engineering},
+  series    = {ASE '26},
+  year      = {2026},
+  publisher = {ACM},
+  pages     = {1067--1079},
+  doi       = {10.1145/3832783.3834415},
+  url       = {https://doi.org/10.1145/3832783.3834415}
+}
+```
 
 ## 🙏 Acknowledgments
 
